@@ -8,8 +8,7 @@ class Thoughtcrime(Plugin):
 	NAME = "thoughtcrime"
 
 	def recon(self):
-		return self.apk.get_package().startswith('org.thoughtcrime.securesms') and \
-			'res/raw/blfs.key' in self.zipfile.namelist() and \
+		return 'res/raw/blfs.key' in self.zipfile.namelist() and \
 			'res/raw/config.cfg' in self.zipfile.namelist()
 
 	def extract(self):
