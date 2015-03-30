@@ -16,13 +16,9 @@ def run_plugins(args, plugins, filename):
 		plugin = plugin(args, filename, prevalues)
 		if plugin.recon():
 			anything = True
-			print 'Recognized as %s' % str(plugin.NAME)
 			data = plugin.extract()
-			print 'Extracted: ', 
-			pprint(data)
 			for processor in processors:
-				print 'Processor data: ',
-				pprint(processor.process(filename, data))
+				processor.process(filename, plugin.NAME, data)
 	if not anything:
 		print 'Sorry, no plugin could handle the file'
 
