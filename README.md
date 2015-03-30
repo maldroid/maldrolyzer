@@ -28,11 +28,10 @@ python maldrolyzer.py [sample_path]
 If maldrolyzer knows the malware family it will display some useful information like:
 
 ```
-Recognized as Z3Core
-Extracted: {'c2': ['http://bn.bmcart.ru/test.php',
-        'http://lexsmilefux.link/news/news.php']}
-Processor data: {'md5': '03fa8fae3c54989cacc1426b5716eb07',
- 'sha1': 'b1eaa55a7402fdcbd6c46e80c066a1400ce6cdc3',
- 'sha256': '901979e1d02c9a355fbe80a6a863e6c7684d0e15ec458935e67b1418a00e43d8',
- 'sha512': 'f3050de945e44ad2b7945e0f9a163c8bbd98af7b1e08625dfd487c2e79fa31ae28723f77f0ef2114d2190045b43ca9791ddf93981581f1378370483601120301'}
+{'c2': ['http://esaphapss.net/bn/save_message.php'],
+ 'malware': 'xbot007',
+ 'md5': 'ce17e4b04536deac4672b98fbee905e0',
+ 'sha1': 'a48a2b8a5e1cae168ea42bd271f5b5a0c65f59a9',
+ 'sha256': 'c3a24d1df11baf2614d7b934afba897ce282f961e2988ac7fa85e270e3b3ea7d',
+ 'sha512': 'a47f3db765bff9a8d794031632a3cf98bffb3e833f90639b18be7e4642845da2ee106a8947338b9244f50b918a32f1a6a952bb18a1f86f8c176e81c2cb4862b9'}
 ```
