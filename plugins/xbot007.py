@@ -5,7 +5,7 @@ class Xbot007(Plugin):
 
 	def recon(self):
 		for s in self.dvm.get_strings():
-			if 'xbot007' in s.lower().replace('#%',''):
+			if 'xbot007' in s.lower().translate(None, '#%'):
                                 return True
                 return False
 
@@ -22,7 +22,7 @@ class Xbot007(Plugin):
 				len(cls.get_fields()) < 10:
 				for inst in cls.get_methods()[0].get_instructions():
 					if inst.get_name() == 'const-string':
-						host = inst.get_output().replace('#%','').split(',')[-1].strip("' ")
+						host = inst.get_output().translate(None, '#%').split(',')[-1].strip("' ")
 						break
 		result = {'c2': ['http://' + host + '/' + php_end]}
 		return result
