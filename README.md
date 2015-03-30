@@ -6,6 +6,7 @@ You have to install the following packets before you start using this project:
 
 * Androguard (https://github.com/androguard/androguard)
 * PyCrypto (`easy_install pycrypto`)
+* pyelftools (`easy_install pyelftools`)
 
 ### Architecture
 Idea is really simple and modular. The project has couple of directories, which host a place for you static analysis or output processing:
