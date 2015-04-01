@@ -25,5 +25,5 @@ class Marcher(Plugin):
 						for inst in method.get_instructions():
 							if inst.get_name() == 'const-string':
 								c2 = inst.get_output().split(',')[-1].strip("' ")
-		return {'c2': [c2]}
+		return {'c2': [c2 + self.gate]}
 
