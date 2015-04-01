@@ -11,10 +11,10 @@ You have to install the following packets before you start using this project:
 ### Architecture
 Idea is really simple and modular. The project has couple of directories, which host a place for you static analysis or output processing:
 * `plugins` - this is were the code responsible for the malware identification and data extraction is. Every class has to inherit from `Plugin` class from `templates`. 
-** Method `recon` idetifies the malware - put there all of the code you need to make sure you can extract the data.
-** Method  `extract` does the usual extraction. There is no specific format for the extracted data, but it's good to keep it in Python dictionary, so that the ouput processors could read it in a uniform way.
+ * Method `recon` idetifies the malware - put there all of the code you need to make sure you can extract the data.
+ * Method  `extract` does the usual extraction. There is no specific format for the extracted data, but it's good to keep it in Python dictionary, so that the ouput processors could read it in a uniform way.
 * `processing` - this is were you put classes that inherit from `OutputProcessor` class. They are invoked after the data extraction and get the extracted info.
-** `process` method takes the data and produces some kind of a result (i.e. adds a file or C&amp;C to you database, checks if the C&amp;C is live etc.)
+ * `process` method takes the data and produces some kind of a result (i.e. adds a file or C&amp;C to you database, checks if the C&amp;C is live etc.)
 
 If you want to contribute, write a plugin that decodes some new malware family. It's easy, just look at the existing plugins.
 
