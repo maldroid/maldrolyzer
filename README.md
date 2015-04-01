@@ -35,3 +35,4 @@ If maldrolyzer knows the malware family it will display some useful information 
  'sha256': 'c3a24d1df11baf2614d7b934afba897ce282f961e2988ac7fa85e270e3b3ea7d',
  'sha512': 'a47f3db765bff9a8d794031632a3cf98bffb3e833f90639b18be7e4642845da2ee106a8947338b9244f50b918a32f1a6a952bb18a1f86f8c176e81c2cb4862b9'}
 ```
+And you can track the C&Cs from several malware families using http://amtrckr.info
