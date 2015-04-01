@@ -1,4 +1,5 @@
 from androguard.core.bytecodes import dvm, apk
+from androguard.core.analysis import analysis
 from zipfile import ZipFile
 
 def get_plugin_prevalues(args, filename):
@@ -6,6 +7,7 @@ def get_plugin_prevalues(args, filename):
 	a = apk.APK(filename)
 	result['apk'] = a
 	result['dvm'] = dvm.DalvikVMFormat(a.get_dex())
+	result['dx'] = analysis.VMAnalysis(result['dvm'])
 	result['zipfile'] = ZipFile(filename)
 	return result
 	
