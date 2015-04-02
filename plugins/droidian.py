@@ -7,9 +7,10 @@ class Droidian(Plugin):
 
 	def recon(self):
 		for cls in self.dvm.get_classes():
-			if cls.name.lower().endswith('droidianservice;'):
-				self.droidian_service = cls
-				return True
+			for field in cls.get_fields():
+				if field.name in ['backupURL', 'encodedURL']:
+					self.droidian_service = cls
+					return True
 		return False
 		
 	def extract(self):
