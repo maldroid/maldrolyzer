@@ -2,7 +2,8 @@ from templates import Plugin
 from zipfile import ZipFile
 from elftools.elf.elffile import ELFFile
 from cStringIO import StringIO
-import gzip, string, re
+import gzip, string
+import yara
 
 def get_strings(data):
 	result = ""
@@ -57,15 +58,15 @@ class Z3Code(Plugin):
 					continue
 				dll_data = data[symbol['st_value']:symbol['st_value']+symbol['st_size']]
 				dll_data = gzip.GzipFile(fileobj=StringIO(dll_data)).read()
-				regexp = 'h\x00t\x00t\x00p\x00:\x00/\x00/\x00.*?\x00\x00'
-				s = map(lambda x : x.replace('\x00',''), re.compile(regexp, flags=re.UNICODE).findall(dll_data))
-				for entry in s:
-					cc = ""
-					for c in entry:
-						if c in string.printable:
-							cc += c
-						else:
-							break
+				regexp = """rule find_url { 
+							strings: 
+							$url = /http:\/\/[A-Za-z0-9\.\/$\-_+!\*'(),]*/ wide 
+							condition: 
+							$url}"""
+				compiled = yara.compile(source = regexp)
+				s = compiled.match(data = dll_data)
+				for entry in s['main'][0]['strings']:
+					cc = dll_data[entry['offset']:entry['offset']+len(entry['data'])].decode('utf-16')
 					c2.append(cc)
 		return {'c2': c2}
 
