@@ -41,5 +41,5 @@ class Androrat(Plugin):
         else:
             server = c2
 
-        return {'c2': server}
+        return {'c2': [server]}
 
