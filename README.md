@@ -4,7 +4,7 @@ Simple framework to extract "actionable" data from Android malware (C&amp;Cs, ph
 ### Installation
 You have to install the following packets before you start using this project:
 
-* Androguard (https://github.com/androguard/androguard)
+* Androguard (`git clone https://github.com/androguard/androguard; cd androguard; sudo python setup.py install`)
 * PyCrypto (`easy_install pycrypto`)
 * pyelftools (`easy_install pyelftools`)
 * yara (`easy_install yara`)
