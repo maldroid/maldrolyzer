@@ -6,7 +6,7 @@ class Marcher(Plugin):
 
 	def recon(self):
 		for s in self.dvm.get_strings():
-			if s.startswith('get.php?ai='):
+			if s.startswith('get.php'):
 				self.gate = s
 				return True
 
